@@ -1,0 +1,56 @@
+//////////////////////////////////////////////////////
+//
+// @File:		variables.less
+// @Package:	Multipage GetSimple
+// @Action:		Multipage theme for GetSimple CMS
+//
+//////////////////////////////////////////////////////
+
+
+// Defined colors
+@c_main: #113377;
+
+@c_text: #333;
+@c_text_grey: #777;
+
+@c_background_body: #efefef;
+@c_background_sidebar: #eee;
+@c_background_sidebar_bottom: #ddd;
+
+@c_border_grey: #ccc;
+@c_border_lightgrey: #eee;
+@c_border_lightgrey_transparent: rgba(255, 255, 255, 0.40);
+
+@text_shadow_black_light: 1px 1px 0px rgba(0, 0, 0, 0.10);
+@text_shadow_black: 1px 1px 0px rgba(0, 0, 0, 0.40);
+@text_shadow_white: 1px 1px 0px rgba(255, 255, 255, 0.40);
+
+@main_container_shadow: 2px 1px 10px rgba(0, 0, 0, 0.10);
+
+@footer_shadow: 2px 2px 0px rgba(255, 255, 255, 0.84);
+
+@animation_time: 0.777s;
+
+
+// Derivatives
+@c_main_dark: darken(@c_main,12%);
+@c_main_darker: darken(@c_main, 25%);
+@c_main_up: lighten(@c_main, 5%);
+@c_main_down: darken(@c_main, 5%);
+
+@c_text_grey_dark: darken(@c_text_grey, 12%);
+@c_text_grey_darker: darken(@c_text_grey, 25%);
+
+@c_link: @c_main;
+@c_link_hover: @c_main_darker;
+
+@c_sidebar_background: transparent;
+@c_sidebar_text: @c_text_grey_dark;
+@c_sidebar_h2_background: @c_text_grey_darker;
+@c_sidebar_h2_background_up: lighten(@c_sidebar_h2_background, 5%);
+@c_sidebar_h2_background_down: darken(@c_sidebar_h2_background, 5%);
+@c_sidebar_h2_text: white;
+
+@c_footer: @c_text_grey;
+@c_footer_dark: @c_text_grey_darker;
+@c_footer_darker: black;

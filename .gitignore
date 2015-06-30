@@ -1,0 +1,16 @@
+*~
+*.xcf
+
+/css/bootstrap.css
+/css/theme.css
+/css/variables.css
+
+/js/jquery*.js
+
+/less/theme.less
+
+/*.php
+!/*.inc.php
+!/functions.php
+!/template.php
+!/multipage.php
