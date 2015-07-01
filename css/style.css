@@ -132,12 +132,14 @@ nav li a {
 /* Sidebar */
 /* Sections */
 .sidebar .section {
-  margin-bottom: 2.2em;
   padding: 0 16px 0 0;
   background: transparent none;
   font-size: 0.777em;
   line-height: 1.25em;
   color: #585858;
+}
+.sidebar .section > *:last-child {
+  margin-bottom: 2.2em;
 }
 .sidebar .section h2 {
   margin: 0 -16px 1em -15px;
