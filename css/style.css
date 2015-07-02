@@ -238,6 +238,7 @@ article > .page-toc {
   margin: 20px 0 20px 20px;
   border-left: 1px solid #eeeeee;
   padding: 0 0 10px 20px;
+  background: white none;
 }
 article > .page-toc > h3:first-child {
   text-transform: capitalize;
@@ -258,8 +259,8 @@ article > blockquote {
 article blockquote {
   font-size: inherit;
 }
-article p,
-article pre {
+article > p,
+article > pre {
   margin: 0 0 1.75em 0;
 }
 article h1 {
