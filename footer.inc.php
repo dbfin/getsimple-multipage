@@ -45,27 +45,41 @@
 		jQuery(document).ready(function ($) {
 			$divTOC = $('article .page-toc');
 			if ($divTOC.length) {
-				$hs = $('article h2,article h3,article h4');
+				$hs = $('article .page-content');
+				$hs = $hs.find('h1:visible,h2:visible,h3:visible,h4:visible');
 				if ($hs.length) {
 					$divHTML = '<h3>Content</h3>';
-					$level_ = 1;
+					$levelmin = 1000;
 					$hs.each(function () {
+						$htag = this.tagName;
+						$level_ = parseInt($htag.substring(1));
+						if ($level_ < $levelmin) $levelmin = $level_;
+					});
+					$level = --$levelmin;
+					$hs.each(function ($index) {
 						$h = $(this);
 						$htag = this.tagName;
-						$level = parseInt($htag.substring(1));
-						while ($level_ < $level) { $divHTML += '<ul>'; ++$level_; }
-						while ($level_ > $level) { $divHTML += '</ul>'; --$level_; }
+						$level_ = parseInt($htag.substring(1));
+						while ($level < $level_) { $divHTML += '<ul>\n'; ++$level; }
+						while ($level > $level_) { $divHTML += '</ul>\n'; --$level; }
 						$hname = $h.attr('id') || $h.attr('name') || '';
 						if (!$hname) {
 							$ha = $h.children('a:first-child');
-							if ($ha.length && !$ha.attr('href')) $hname = $ha.attr('id') || $ha.attr('name') || '';
+							if ($ha.length && !$ha.attr('href')) {
+								$hname = $ha.attr('id') || $ha.attr('name') || '';
+							}
+							if (!$hname) {
+								$hname = 'toc_name_' + $index;
+								while ($('#' + $hname + ',[name="' + $hname + '"]').length) $hname += '_';
+								$h.prepend('<a name="' + $hname + '"></a>');
+							}
 						}
 						$htext = $h.text();
 						$divHTML += '<li>'
 									+ ($hname ? '<a href="#' + $hname + '">' + $htext + '</a>' : $htext)
-									+ '</li>';
+									+ '</li>\n';
 					});
-					while ($level_ > 1) { $divHTML += '</ul>'; --$level_; }
+					while ($level > $levelmin) { $divHTML += '</ul>\n'; --$level; }
 					$divTOC.html($divHTML).show();
 				}
 			}

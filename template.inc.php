@@ -74,8 +74,7 @@ if ($tabindex < 0) {
 			?>
 			<article class="<?php echo $childUrl.$childPrivate; ?>">
 				<div class="page-header"><h1><?php echo $childPage['title']; ?></h1></div>
-				<?php if ($currentPageUrl != 'index'
-						  && ($template_file == 'template.php' || $template_file == 'multipage.php')) {
+				<?php if ($currentPageUrl != 'index') {
 					echo '<div class="page-toc"></div>';
 				} ?>
 				<div class="page-content"><?php echo $childContent; ?></div>
