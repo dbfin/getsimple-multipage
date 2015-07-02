@@ -9,8 +9,4 @@
 
 /less/theme.less
 
-/*.php
-!/*.inc.php
-!/functions.php
-!/template.php
-!/multipage.php
+/functions_custom.php

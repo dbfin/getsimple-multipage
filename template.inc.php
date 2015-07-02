@@ -71,6 +71,7 @@ if ($tabindex < 0) {
 							? $currentPageContent
 							: (string)returnPageField($childUrl, 'content');
 			$childPrivate = ($childPage['private'] != 'Y' ? '' : ' private');
+			$childContent = doShortcodes($childContent);
 			?>
 			<article class="<?php echo $childUrl.$childPrivate; ?>">
 				<div class="page-header"><h1><?php echo $childPage['title']; ?></h1></div>

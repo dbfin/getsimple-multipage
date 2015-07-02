@@ -82,10 +82,28 @@ Multipage Theme for GetSimple CMS has the following features.
   store, access and modify theme settings, unless a separate plugin is
   used. Therefore, without such a plugin, manual editing is needed.
 
+- Shortcodes and custom functions.
+
+  Custom functions can be specified in the file functions_custom.php
+  located in the directory /theme/Multipage/. This file (if exists) is
+  imported by the file functions.php, so that the functions specified
+  there are available to be used anywhere in the code and components.
+
+  A shortcode is defined in the file functions_custom.php (see above)
+  as a function shortcode_N, where N stands for a non-empty sequence
+  of letters and underscores (corresponding to the regular expression
+  \[a-z_\]+). The theme automatically searches the content for \[N\],
+  and when found, checks whether the corresponding function exists.
+  If the function exists and does not take any arguments, it is called,
+  and the result of its call replaces the shortcode. If the function
+  takes an argument, there should be a matching closing shortcode, i.e.
+  \[/N\], and the content between the opening and closing shortcodes
+  is passed to the function, with the result replacing the content
+  between the shortcodes including them both.
+
 ![](images/screenshot.png)
 
-About GetSimple
----------------
+### About GetSimple ###
 
 GetSimple CMS is a flatfile CMS that works fast and efficient.
 
@@ -94,8 +112,7 @@ once I switched from Wordpress to GetSimple CMS.
 
 Official Website - http://get-simple.info/
 
-License
--------
+### License ###
 
 This software is licensed under the GNU GENERAL PUBLIC LICENSE v3.
 Please see LICENSE.txt located in the root directory of the theme.
