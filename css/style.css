@@ -39,11 +39,11 @@ ol ol ol {
 ul > li,
 ol > li {
   text-align: left;
-  text-indent: 0;
+  margin-left: 0;
 }
 ul > li {
   list-style: none;
-  text-indent: -17px;
+  margin-left: -17px;
 }
 ol > li {
   padding-left: 0.5em;
@@ -78,7 +78,6 @@ nav li {
   display: block;
   float: left;
   margin: 0 0 0 1em;
-  text-indent: 0;
 }
 nav li:before {
   content: '';
@@ -198,7 +197,7 @@ nav li a {
 }
 .sidebar .children li {
   padding: 0.42em 16px 0.42em 0;
-  text-indent: 0;
+  margin-left: 0;
 }
 .sidebar .children li:before {
   content: '';
