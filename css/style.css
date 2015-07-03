@@ -23,35 +23,64 @@ a:focus {
 }
 ul,
 ol {
-  margin-bottom: 1em;
-  margin-left: 17px;
+  display: table;
+  margin: 1em 0 0.5em 0;
   padding-left: 0;
+  list-style: none inside;
 }
 ol {
-  list-style-type: decimal;
+  counter-reset: counter-ol-1;
 }
 ol ol {
-  list-style-type: lower-alpha;
+  counter-reset: counter-ol-2;
 }
 ol ol ol {
-  list-style-type: lower-roman;
+  counter-reset: counter-ol-3;
+}
+ol ol ol ol {
+  counter-reset: counter-ol-empty;
 }
 ul > li,
 ol > li {
+  display: table-row;
   text-align: left;
-  margin-left: 0;
 }
-ul > li {
-  list-style: none;
-  margin-left: -17px;
-}
-ol > li {
-  padding-left: 0.5em;
+ul > li:before,
+ol > li:before {
+  display: table-cell;
+  font-family: monospace;
 }
 ul > li:before {
+  content: '\00bb\00a0';
+}
+ul ul > li:before {
   content: '\2219\00a0';
-  font-size: 1.1em;
-  line-height: 17px;
+}
+ul ul ul > li:before {
+  content: '\2218\00a0';
+}
+ol > li:before {
+  counter-increment: counter-ol-1;
+  content: counter(counter-ol-1, decimal) '.\00a0';
+  text-align: right;
+}
+ol ol > li:before {
+  counter-increment: counter-ol-2;
+  content: counter(counter-ol-2, lower-alpha) '.\00a0';
+}
+ol ol ol > li:before {
+  counter-increment: counter-ol-3;
+  content: counter(counter-ol-3, lower-roman) '.\00a0';
+}
+ol ol ol ol > li:before {
+  counter-increment: counter-ol-empty;
+  content: '-\00a0';
+}
+ul > li:after,
+ol > li:after {
+  content: '';
+  display: block;
+  margin-bottom: 0.5em;
 }
 /* Layout */
 .container-fluid {
@@ -141,7 +170,7 @@ nav li a {
   margin-bottom: 2.2em;
 }
 .sidebar .section h2 {
-  margin: 0 -16px 1em -15px;
+  margin: 0 -16px 2em -15px;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   padding: 4px 16px 5px 15px;
   background: #373737 none;
@@ -201,6 +230,9 @@ nav li a {
 }
 .sidebar .children li:before {
   content: '';
+}
+.sidebar .children li:after {
+  margin-bottom: 2em;
 }
 .sidebar .children a {
   margin-top: 0;
