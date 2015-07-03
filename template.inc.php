@@ -22,8 +22,8 @@ foreach ($childPages as $index => $childPage) {
 $metak = implode(',', array_unique(explode(',', $metak)));
 
 if (!empty($currentPageContent) || empty($childPages)) {
-	array_unshift($childPages, array( 'url' => $currentPageUrl, 'title' => get_page_title(false),
-									  'menuOrder' => -1, 'private' => (string)$private ));
+	array_unshift($childPages, array('url' => $currentPageUrl, 'title' => get_page_title(false),
+									 'menuOrder' => -1, 'private' => (string)$private ));
 	$tabindex++;
 }
 if ($tabindex < 0) {
@@ -33,17 +33,11 @@ if ($tabindex < 0) {
  require('header.inc.php');
 ?>
 
-<nav class="navbar navbar-fixed-top">
+<nav>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="navbar-header navbar-right">
-					<ul>
-						<?php get_navigation($currentPageUrl); ?>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<ul>
+			<?php get_navigation($currentPageUrl); ?>
+		</ul>
 	</div>
 </nav>
 

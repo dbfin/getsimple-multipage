@@ -91,17 +91,25 @@ ol > li:after {
 }
 /* Top Navigation */
 nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  width: 100%;
   min-height: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
-nav .navbar-header {
-  padding: 0 1em;
+nav > .container-fluid {
+  position: relative;
 }
-nav ul,
-nav ol {
+nav ul {
+  position: absolute;
+  right: 19px;
+  top: 13px;
   margin: 0;
   padding: 0;
   list-style: none;
-  float: right;
 }
 nav li {
   display: block;
@@ -118,7 +126,8 @@ nav li a {
   display: block;
   font-size: 0.777em;
   font-weight: normal;
-  padding: 12px 7px;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -327,7 +336,7 @@ footer a:focus {
   html {
     font-size: 15px;
   }
-  nav .navbar-header {
+  nav {
     padding: 0;
   }
   .logo {
