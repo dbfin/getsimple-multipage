@@ -60,8 +60,16 @@
 						$h = $(this);
 						$htag = this.tagName;
 						$level_ = parseInt($htag.substring(1));
-						while ($level < $level_) { $divHTML += '<ul>\n'; ++$level; }
-						while ($level > $level_) { $divHTML += '</ul>\n'; --$level; }
+						while ($level < $level_) {
+							$divHTML += '<div><ul><li>';
+							$lifirst = true;
+							++$level;
+						}
+						while ($level > $level_) {
+							$divHTML += '</li></ul></div>';
+							$lifirst = false;
+							--$level;
+						}
 						$hname = $h.attr('id') || $h.attr('name') || '';
 						if (!$hname) {
 							$ha = $h.children('a:first-child');
@@ -75,15 +83,18 @@
 							}
 						}
 						$htext = $h.text();
-						$divHTML += '<li>'
-									+ ($hname ? '<a href="#' + $hname + '">' + $htext + '</a>' : $htext)
-									+ '</li>\n';
+						if (!$lifirst) $divHTML += '</li><li>';
+						else $lifirst = false;
+						$divHTML += '<a href="#' + $hname + '">' + $htext + '</a>';
 					});
-					while ($level > $levelmin) { $divHTML += '</ul>\n'; --$level; }
+					while ($level > $levelmin) {
+						$divHTML += '</li></ul></div>';
+						--$level;
+					}
 					$divTOC.html($divHTML).show();
-				}
-			}
-		});
+				} // if ($hs.length)
+			} // if ($divTOC.length)
+		}); // jQuery(document).ready(function ($) {})
 	</script>
 	<!-- Component scripts -->
 	<?php get_component('footer-tags'); ?>
