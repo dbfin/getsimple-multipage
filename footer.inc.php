@@ -82,11 +82,15 @@
 								$h.prepend('<a name="' + $hname + '"></a>');
 							}
 						}
-						$htext = $h.text();
+						$hclone = $h.clone().removeAttr('id name');
+						$hclone.find('a').each(function () {
+							$(this).replaceWith($(this).html());
+						});
+						$htext = $hclone.html();
 						if (!$lifirst) $divHTML += '</li><li>';
 						else $lifirst = false;
 						$divHTML += '<a href="#' + $hname + '">' + $htext + '</a>';
-					});
+					}); // $hs.each(function ($index) {})
 					while ($level > $levelmin) {
 						$divHTML += '</li></ul></div>';
 						--$level;
