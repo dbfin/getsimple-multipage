@@ -245,6 +245,7 @@ nav li a {
 }
 .sidebar .children li.private:before {
   content: '*\00a0';
+  display: table-cell;
   color: red;
 }
 .sidebar .children li:after {
