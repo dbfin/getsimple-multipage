@@ -279,6 +279,9 @@ article > .page-content > * {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+article pre {
+  padding: 5px;
+}
 article li * {
   padding-bottom: 0;
 }

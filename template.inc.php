@@ -30,7 +30,7 @@ if ($tabindex < 0) {
 	$tabindex = 0;
 }
 
- require('header.inc.php');
+require('header.inc.php');
 ?>
 
 <nav>
