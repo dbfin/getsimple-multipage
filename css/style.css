@@ -111,10 +111,10 @@ nav > .container-fluid {
 }
 nav ul {
   position: absolute;
-  right: 19px;
-  top: 13px;
+  right: 0;
+  top: 0;
   margin: 0;
-  padding: 0;
+  padding: 11px 16px;
   list-style: none;
 }
 nav li {
@@ -131,7 +131,6 @@ nav li:first-child {
 }
 nav li a {
   display: block;
-  font-size: 0.777em;
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -399,13 +398,23 @@ footer a:focus {
 }
 /* Small screens */
 @media screen and (max-width: 991px) {
+  nav ul {
+    border-radius: 0 0 0 56px;
+    height: 56px;
+    line-height: 55px;
+    padding: 0 14px 0 28px;
+    background-color: rgba(255, 255, 255, 0.96);
+  }
   #nav-toggle + #nav-toggle-label {
     display: block;
     position: fixed;
     z-index: 1111;
     left: 0%;
     top: 0;
-    padding: 18px 20px;
+    height: 56px;
+    border-radius: 0 0 56px 0;
+    padding: 17px 28px 17px 14px;
+    background-color: rgba(255, 255, 255, 0.96);
     cursor: pointer;
     transition: all 0.777s;
     -o-transition: all 0.777s;
@@ -416,6 +425,7 @@ footer a:focus {
   #nav-toggle:checked + #nav-toggle-label {
     left: 100%;
     margin-left: -62px;
+    background-color: rgba(255, 255, 255, 0);
   }
   #nav-toggle + #nav-toggle-label .icon-bar {
     display: block;
