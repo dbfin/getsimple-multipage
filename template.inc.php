@@ -9,24 +9,20 @@
 
 $settings = getSettings();
 
-global $private, $metak;
-
-$tab = ($currentPageUrl === 'index' ? '' : $currentPageUrl.'_').(string)filter_input(INPUT_GET, 't');
 $tabindex = -1;
 foreach ($childPages as $index => $childPage) {
-	$metak .= ','.$childPage['meta'];
-	if ($childPage['url'] === $tab) {
+	if ($childPage['url'] === $currentPageUrl) {
 		$tabindex = $index;
+	}
+	else {
+		$metak .= ','.$childPage['meta'];
 	}
 }
 $metak = implode(',', array_unique(explode(',', $metak)));
 
-if (!empty($currentPageContent) || empty($childPages)) {
+if ($tabindex < 0) {
 	array_unshift($childPages, array('url' => $currentPageUrl, 'title' => get_page_title(false),
 									 'menuOrder' => -1, 'private' => (string)$private ));
-	$tabindex++;
-}
-if ($tabindex < 0) {
 	$tabindex = 0;
 }
 
@@ -61,9 +57,7 @@ require('header.inc.php');
 			<?php
 			$childPage = $childPages[$tabindex];
 			$childUrl = $childPage['url'];
-			$childContent = $childUrl === $currentPageUrl
-							? $currentPageContent
-							: (string)returnPageField($childUrl, 'content');
+			$childContent = returnPageField($childUrl, 'content');
 			$childPrivate = ($childPage['private'] != 'Y' ? '' : ' private');
 			$childContent = doShortcodes($childContent);
 			?>

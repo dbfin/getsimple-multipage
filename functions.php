@@ -52,6 +52,39 @@ function getSettings() {
 
 
 /**
+ * Function multipageChildren
+ *
+ * Returns the array with the page and its children information if the page uses the multipage template,
+ * or the empty array otherwise
+ *
+ * @param string $pageUrl The url of the page
+ * @return array The array with the page and children information
+ */
+function multipageChildren($pageUrl) {
+	global $USR;
+	if (empty($pageUrl) || returnPageField($pageUrl, 'template') !== 'multipage.php') {
+		return array();
+	}
+	$result = getChildrenMulti($pageUrl, array( 'title', 'menuOrder', 'meta', 'private' ));
+	if (empty($result)) {
+		$result = array(); # getChildrenMulti() returns NULL if there are no children
+	}
+	else {
+		$result = subval_sort($result, 'menuOrder');
+		if (!isset($USR) || $USR !== get_cookie('GS_ADMIN_USERNAME')) {
+			$result = array_filter($result, function ($childPage) { return $childPage['private'] != 'Y'; });
+		}
+	}
+	array_unshift($result, array('url' => $pageUrl,
+								 'title' => returnPageField($pageUrl, 'title'),
+								 'menuOrder' => returnPageField($pageUrl, 'menuOrder'),
+								 'meta' => returnPageField($pageUrl, 'meta'),
+								 'private' => returnPageField($pageUrl, 'private')));
+	return $result;
+}
+
+
+/**
  * Function doShortcodes
  *
  * Parses the content and searches for shortcodes, replacing them by the results of corresponding functions
