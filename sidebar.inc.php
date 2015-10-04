@@ -15,7 +15,7 @@ if ($parent != '' && $parent != 'index') {
 ?>
 <div class="section parent">
 	<b>Parent Topic:</b>
-	<a href="<?php echo get_site_url(false).$parent; ?>"><?php echo getPageField($parent, 'title'); ?></a>
+	<a href="<?php echo find_url($parent, ''); ?>"><?php echoPageField($parent, 'title'); ?></a>
 </div>
 <?php
 }
@@ -38,18 +38,11 @@ if (!empty($childPages) && count($childPages) > 1) {
 	<ul>
 <?php
 	foreach ($childPages as $index => $childPage) {
-		$childUrl = (string)$childPage['url'];
-		if ($childUrl === $currentPageUrl) {
-			$url = parse_url((string)filter_input(INPUT_SERVER, 'REQUEST_URI'), PHP_URL_PATH);
-		}
-		else if ($currentPageUrl === 'index') {
-			$url = '?t='.$childUrl;
-		}
-		else {
-			$url = '?t='.substr($childUrl, strlen($currentPageUrl) + 1);
-		}
-		$childPrivate = ($childPage['private'] != 'Y' ? '' : 'private');
-		echo "\t\t".'<li class="'.$childPrivate.'"><a href="'.$url.'">'.$childPage['title'].'</a></li>'."\n";
+		$childUrl = $childPage['url'];
+		$childPrivate = ($childPage['private'] != 'Y' ? '' : ' private');
+		$childActive = ($childUrl === $currentPageUrl ? ' active' : '');
+		echo "\t\t".'<li class="'.$childPrivate.$childActive.'">'
+				   .'<a href="'.find_url($childUrl, '').'">'.$childPage['title'].'</a></li>'."\n";
 	}
 ?>
 	</ul>
