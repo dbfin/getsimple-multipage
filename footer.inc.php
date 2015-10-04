@@ -26,7 +26,8 @@
 				Please consider keeping the links to the developer and GetSimple if you use this theme
 			-->
 			<div class="credits-theme text-center col-md-6 col-md-pull-3">
-				Multipage theme by <a href="https://github.com/dbfin" target="_blank">Vadim @ dbFin</a>
+				<a href="https://github.com/dbfin/getsimple-multipage" target="_blank">Multipage theme</a>
+				by <a href="https://github.com/dbfin" target="_blank">Vadim @ dbFin</a>
 				based on <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
 			</div>
 		</div>
@@ -36,8 +37,8 @@
 
 	<!-- Libraries -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
 
 	<!-- Scripts -->
 	<!-- Table of Content -->
