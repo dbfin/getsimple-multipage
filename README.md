@@ -2,6 +2,9 @@ Multipage Theme for GetSimple CMS
 =================================
 
 
+![](images/screenshot.png)
+
+
 DESCRIPTION
 -----------
 
@@ -100,8 +103,6 @@ Multipage Theme for GetSimple CMS has the following features.
   \[/N\], and the content between the opening and closing shortcodes
   is passed to the function, with the result replacing the content
   between the shortcodes including them both.
-
-![](images/screenshot.png)
 
 ### About GetSimple ###
 
