@@ -255,6 +255,25 @@ nav li a {
   font-size: 1.25em;
   line-height: 1.5em;
 }
+/* Post navigation */
+.post-navigation {
+  display: none;
+}
+.post-navigation > p {
+  display: block;
+  margin: 0;
+  padding: 0 0 5px 0;
+}
+.post-navigation > p.post-previous {
+  float: left;
+}
+.post-navigation > p.post-next {
+  float: right;
+}
+.post-navigation a {
+  color: #777777;
+  font-size: 0.75em;
+}
 /* Content */
 #main-container {
   border-bottom: 1px solid #cccccc;
@@ -378,6 +397,10 @@ footer a:focus {
   }
   .sidebar .logo {
     display: none;
+  }
+  .post-navigation {
+    display: none;
+    display: block;
   }
   article {
     min-height: 0;

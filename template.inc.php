@@ -62,6 +62,20 @@ require('header.inc.php');
 			$childContent = doShortcodes($childContent);
 			?>
 			<article class="<?php echo $childUrl.$childPrivate; ?>">
+				<?php
+					if (!empty($childPages) && count($childPages) > 1) {
+						echo '<div class="post-navigation clearfix">';
+						if ($tabindex > 0) {
+							echo '<p class="post-previous"><a href="'.find_url($childPages[$tabindex - 1]['url'], '').'">« '
+								 .$childPages[$tabindex - 1]['title'].'</a></p>';
+						}
+						if ($tabindex < count($childPages) - 1) {
+							echo '<p class="post-next"><a href="'.find_url($childPages[$tabindex + 1]['url'], '').'">'
+								 .$childPages[$tabindex + 1]['title'].' »</a></p>';
+						}
+						echo '</div>'."\n";
+					}
+				?>
 				<div class="page-header"><h1><?php echo $childPage['title']; ?></h1></div>
 				<?php if ($currentPageUrl != 'index') {
 					echo '<div class="page-toc"></div>';

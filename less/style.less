@@ -262,6 +262,27 @@ nav li a {
 }
 
 
+/* Post navigation */
+.post-navigation {
+	display: none;
+}
+.post-navigation > p {
+	display: block;
+	margin: 0;
+	padding: 0 0 @article_padding 0;
+}
+.post-navigation > p.post-previous {
+	float: left;
+}
+.post-navigation > p.post-next {
+	float: right;
+}
+.post-navigation a {
+	color: @c_text_grey;
+	font-size: 0.75em;
+}
+
+
 /* Content */
 #main-container {
 	border-bottom: 1px solid @c_border_grey;
@@ -387,6 +408,10 @@ footer a:link:hover, footer a:focus {
 	}
 	.sidebar .logo {
 		display: none;
+	}
+	.post-navigation {
+		display: none;
+		display: block;
 	}
 	article {
 		min-height: 0;
