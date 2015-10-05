@@ -11,11 +11,12 @@
 	<a href="<?php get_site_url(); ?>"><?php get_site_name(); ?></a>
 </div>
 <?php
-if ($parent != '' && $parent != 'index') {
+if (!empty($parent) && $parent != 'index') {
+	$parentUrl = ($tabindex ? returnPageField($childPages[0]['url'], 'parent') : $parent);
 ?>
 <div class="section parent">
 	<b>Parent Topic:</b>
-	<a href="<?php echo find_url($parent, ''); ?>"><?php echoPageField($parent, 'title'); ?></a>
+	<a href="<?php echo find_url($parentUrl, ''); ?>"><?php echoPageField($parentUrl, 'title'); ?></a>
 </div>
 <?php
 }
