@@ -31,8 +31,8 @@
 
 	<!-- Theme -->
 	<link rel="stylesheet" type="text/css" media="all"
-		  href="<?php echo get_theme_url(false).'/css/style.css?v='
-						   .filemtime(get_root_path().'theme/'.$TEMPLATE.'/css/style.css'); ?>" />
+		  href="/theme/<?php echo $TEMPLATE; ?>/css/style.css?v=<?php
+				echo filemtime(get_root_path().'theme/'.$TEMPLATE.'/css/style.css'); ?>" />
 
 	<!-- Custom post-theme tags -->
 	<?php get_component('header-post-tags'); ?>
@@ -43,7 +43,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<!--[if lt IE 7 ]>
-		<script src="<?php get_theme_url(); ?>/js/dd_belatedpng.js"></script>
+		<script src="/theme/<?php echo $TEMPLATE; ?>/js/dd_belatedpng.js"></script>
 		<script>DD_belatedPNG.fix('img, .png_bg');</script>
 	<![endif]-->
 	<!-- Google Analytics -->
