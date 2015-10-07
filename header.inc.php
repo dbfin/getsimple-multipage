@@ -59,4 +59,4 @@
 	<?php get_header(); ?>
 
 </head>
-<body class="<?php get_page_slug(); ?>" >
+<body class="<?php get_page_slug(); if ($parent != '') echo ' childof-'.$parent; ?>" >
