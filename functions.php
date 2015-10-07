@@ -7,10 +7,6 @@
 *
 *****************************************************/
 
-if (file_exists(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php')) {
-	include_once(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php');
-}
-
 
 /**
  * Function getDefaultSettings
@@ -122,6 +118,11 @@ function doShortcodes($content) {
 		} // if (function_exists($scf))
 	} // while ($n--)
 	return $content;
+}
+
+
+if (file_exists(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php')) {
+	include_once(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php');
 }
 
 ?>
