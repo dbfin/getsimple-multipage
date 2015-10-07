@@ -19,7 +19,7 @@
 				echo 'Copyright © '.$year.' '.$settings->copyright_name;
 			?></div>
 			<div class="credits-getsimple text-right col-xs-5 col-md-3 col-md-push-6">
-				Powered by <a href="http://get-simple.info/">GetSimple</a>
+				Powered by <a href="http://get-simple.info/" target="_blank">GetSimple</a>
 			</div>
 			<!--
 				Theme Credits
