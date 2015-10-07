@@ -104,6 +104,13 @@ Multipage Theme for GetSimple CMS has the following features.
   is passed to the function, with the result replacing the content
   between the shortcodes including them both.
 
+- Queued Javascript scripts.
+
+  The queue_javascript function from the file functions.php can be used
+  to add named javascript or other scripts (either inline or external)
+  to the footer. This way, custom functions and shortcodes can add the
+  same javascript code without it being duplicated.
+
 ### About GetSimple ###
 
 GetSimple CMS is a flatfile CMS that works fast and efficient.

@@ -124,15 +124,15 @@ function doShortcodes($content) {
 /**
  * Function queue_javascript
  *
- * Adds javascript code to the queue that is later added to the footer
+ * Adds named Javascript code to the queue that is later added to the footer,
+ * the code is not added if there is already code with the same name in the queue
  *
  * @param string $name The name of the javascript code to avoid duplicates
  * @param string $code Javascript code including both opening and closing script tags
- * @param boolean $force Rewrite the code even if there is already one with the same name
  */
-function queue_javascript($name, $code, $force = false) {
+function queue_javascript($name, $code) {
 	global $queueJavascript;
-	if ($force || !array_key_exists($name, $queueJavascript)) {
+	if (!array_key_exists($name, $queueJavascript)) {
 		$queueJavascript[$name] = $code;
 	}
 }
