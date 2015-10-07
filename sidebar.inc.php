@@ -11,8 +11,8 @@
 	<a href="<?php get_site_url(); ?>"><?php get_site_name(); ?></a>
 </div>
 <?php
-if (!empty($parent) && $parent != 'index') {
-	$parentUrl = ($tabindex ? returnPageField($childPages[0]['url'], 'parent') : $parent);
+$parentUrl = ($tabindex ? returnPageField($childPages[0]['url'], 'parent') : $parent);
+if ($parentUrl != '' && $parentUrl != 'index') {
 ?>
 <div class="section parent">
 	<b>Parent Topic:</b>
