@@ -43,7 +43,7 @@ if (!empty($childPages) && count($childPages) > 1) {
 		$childPrivate = ($childPage['private'] != 'Y' ? '' : ' private');
 		$childActive = ($childUrl === $currentPageUrl ? ' active' : '');
 		echo "\t\t".'<li class="'.$childPrivate.$childActive.'">'
-				   .'<a href="'.find_url($childUrl, '').'">'.$childPage['title'].'</a></li>'."\n";
+				   .'<a href="'.find_url($childUrl, '').'">'.$childPage['title'].'</a></li>'.PHP_EOL;
 	}
 ?>
 	</ul>

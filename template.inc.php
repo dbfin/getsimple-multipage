@@ -81,12 +81,12 @@ require('header.inc.php');
 							echo '<p class="post-next"><a href="'.find_url($childPages[$tabindex + 1]['url'], '').'">'
 								 .$childPages[$tabindex + 1]['title'].' »</a></p>';
 						}
-						echo '</div>'."\n";
+						echo '</div>'.PHP_EOL;
 					}
 				?>
 				<div class="page-header"><h1><?php echo $childPage['title']; ?></h1></div>
 				<?php if ($currentPageUrl != 'index') {
-					echo '<div class="page-toc"></div>';
+					echo '<div class="page-toc"></div>'.PHP_EOL;
 				} ?>
 				<div class="page-content"><?php echo $childContent; ?></div>
 			</article>
