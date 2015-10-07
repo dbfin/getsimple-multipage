@@ -121,6 +121,23 @@ function doShortcodes($content) {
 }
 
 
+/**
+ * Function queue_javascript
+ *
+ * Adds javascript code to the queue that is later added to the footer
+ *
+ * @param string $name The name of the javascript code to avoid duplicates
+ * @param string $code Javascript code including both opening and closing script tags
+ * @param boolean $force Rewrite the code even if there is already one with the same name
+ */
+function queue_javascript($name, $code, $force = false) {
+	global $queueJavascript;
+	if ($force || !array_key_exists($name, $queueJavascript)) {
+		$queueJavascript[$name] = $code;
+	}
+}
+
+
 if (file_exists(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php')) {
 	include_once(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php');
 }

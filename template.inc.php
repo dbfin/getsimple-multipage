@@ -9,6 +9,14 @@
 
 $settings = getSettings();
 
+$queueJavascript = array();
+queue_javascript('jquery', '<script type="text/javascript"'.
+				' src="https://code.jquery.com/jquery-1.11.3.min.js"></script>');
+queue_javascript('bootstrap', '<script type="text/javascript"'.
+				' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>');
+queue_javascript('ie10-viewport-bug-workaround', '<script type="text/javascript"'.
+				' src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>');
+
 $tabindex = -1;
 foreach ($childPages as $index => $childPage) {
 	if ($childPage['url'] === $currentPageUrl) {
