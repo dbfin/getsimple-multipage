@@ -287,7 +287,7 @@ nav li a {
 /* Article */
 article {
   min-height: 640px;
-  padding: 25px;
+  padding: 25px 25px 0 25px;
   color: #333333;
 }
 article *,
@@ -354,6 +354,10 @@ article > .page-content {
 article > .page-content > *:first-child {
   padding-top: 5px;
 }
+article > .page-content > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 40px;
+}
 article > .page-content h1,
 article > .page-content h2,
 article > .page-content h3 {
@@ -369,9 +373,9 @@ article .footer {
 }
 /* Comments */
 #disqus_thread {
-  margin: 40px -40px 0 -40px;
+  margin: 0 -40px 0 -40px;
   border-top: 1px solid #eeeeee;
-  padding: 20px 40px 10px 40px;
+  padding: 20px 40px 20px 40px;
   text-align: center;
   color: #777777;
 }
@@ -422,6 +426,12 @@ footer a:focus {
     margin: 20px 0 -20px 0;
     border-left: none;
     padding-left: 0;
+  }
+  #disqus_thread {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   footer .credits-theme {
     text-align: left;
