@@ -367,6 +367,14 @@ article > .page-content blockquote {
 article .footer {
   display: none;
 }
+/* Comments */
+#disqus_thread {
+  margin: 40px -40px 0 -40px;
+  border-top: 1px solid #eeeeee;
+  padding: 20px 40px 10px 40px;
+  text-align: center;
+  color: #777777;
+}
 /* Footer */
 footer {
   padding: 10px 0;

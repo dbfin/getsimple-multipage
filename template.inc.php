@@ -17,6 +17,10 @@ queue_javascript('bootstrap', '<script type="text/javascript"'.
 queue_javascript('ie10-viewport-bug-workaround', '<script type="text/javascript"'.
 				' src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>');
 
+// By default comments are shown on all pages except private, the index page and its children, and 404
+// See also shortcode [nocomments]
+$commentsShow = $private != 'Y' && $currentPageUrl != 'index' && $parent != 'index' && $currentPageUrl != '404';
+
 $tabindex = -1;
 foreach ($childPages as $index => $childPage) {
 	if ($childPage['url'] === $currentPageUrl) {
@@ -74,12 +78,12 @@ require('header.inc.php');
 					if (!empty($childPages) && count($childPages) > 1) {
 						echo '<div class="post-navigation clearfix">';
 						if ($tabindex > 0) {
-							echo '<p class="post-previous"><a href="'.find_url($childPages[$tabindex - 1]['url'], '').'">« '
-								 .$childPages[$tabindex - 1]['title'].'</a></p>';
+							echo '<p class="post-previous"><a href="'.find_url($childPages[$tabindex - 1]['url'], '')
+								 .'">« '.$childPages[$tabindex - 1]['title'].'</a></p>';
 						}
 						if ($tabindex < count($childPages) - 1) {
-							echo '<p class="post-next"><a href="'.find_url($childPages[$tabindex + 1]['url'], '').'">'
-								 .$childPages[$tabindex + 1]['title'].' »</a></p>';
+							echo '<p class="post-next"><a href="'.find_url($childPages[$tabindex + 1]['url'], '')
+								 .'">'.$childPages[$tabindex + 1]['title'].' »</a></p>';
 						}
 						echo '</div>'.PHP_EOL;
 					}
@@ -89,6 +93,10 @@ require('header.inc.php');
 					echo '<div class="page-toc"></div>'.PHP_EOL;
 				} ?>
 				<div class="page-content"><?php echo $childContent; ?></div>
+				<?php if ($commentsShow && $settings->disqus) { ?>
+				<div id="disqus_thread"><noscript>Please enable JavaScript to view comments.</noscript></div>
+				<script>document.getElementById('disqus_thread').innerHTML = 'Loading comments...';</script>
+				<?php } ?>
 			</article>
 		</div>
 	</div></div>

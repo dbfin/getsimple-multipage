@@ -122,6 +122,20 @@ function doShortcodes($content) {
 
 
 /**
+ * Function shortcode_nocomments
+ *
+ * Changes the state of the variable $commentsShow to false
+ *
+ * @return string The empty string
+ */
+function shortcode_nocomments() {
+	global $commentsShow;
+	$commentsShow = false;
+	return '';
+}
+
+
+/**
  * Function queue_javascript
  *
  * Adds named Javascript code to the queue that is later added to the footer,
@@ -136,6 +150,27 @@ function queue_javascript($name, $code) {
 		$queueJavascript[$name] = $code;
 	}
 }
+
+
+/**
+ * Function $getCommentsSettings
+ *
+ * Returns comments settings, such as the identifier and title, in an array
+ *
+ * Note: this function can be rewritten by assigning another function to $getCommentsSettings
+ *
+ * @return array An array containing comments settings, or null
+ */
+$getCommentsSettings = function () {
+	global $childUrl;
+	$url = $childUrl;
+	$title = get_page_clean_title(false);
+	while (($url = returnPageField($url, 'parent')) && $url !== 'index') {
+		$title = strip_tags(strip_decode(returnPageField($url, 'title'))).' > '.$title;
+	}
+	$title = 'dbFin > '.$title;
+	return array('identifier' => $childUrl, 'title' => $title);
+};
 
 
 if (file_exists(GSTHEMESPATH.'/'.$TEMPLATE.'/functions_custom.php')) {

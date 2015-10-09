@@ -111,6 +111,8 @@ Multipage Theme for GetSimple CMS has the following features.
   to the footer. This way, custom functions and shortcodes can add the
   same javascript code without it being duplicated.
 
+- Comments & Analytics: built-in support for Google Analytics and Disqus
+
 ### About GetSimple ###
 
 GetSimple CMS is a flatfile CMS that works fast and efficient.

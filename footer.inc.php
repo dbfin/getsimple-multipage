@@ -102,6 +102,21 @@
 		} // if ($divTOC.length)
 	}); // jQuery(document).ready(function ($) {})
 </script>
+<?php if ($commentsShow && $settings->disqus) {
+	$commentsSettings = $getCommentsSettings(); ?>
+<!-- Comments -->
+<script type="text/javascript">
+	var disqus_shortname = '<?php echo $settings->disqus; ?>';
+	var disqus_identifier = '<?php echo $commentsSettings['identifier']; ?>';
+	var disqus_title = '<?php echo $commentsSettings['title']; ?>';
+	jQuery(document).ready(function () {
+		setTimeout(function () {
+			jQuery('body').append('<script type="text/javascript" async src="//'
+					+ disqus_shortname + '.disqus.com/embed.js"><\/script>');
+		}, 2500);
+	});
+</script>
+<?php } ?>
 <!-- Component scripts -->
 <?php get_component('footer-tags'); ?>
 
