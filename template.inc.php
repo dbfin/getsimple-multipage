@@ -41,8 +41,15 @@ if ($tabindex < 0) {
 require('header.inc.php');
 ?>
 
+<input id="nav-toggle" type="checkbox" />
 <nav>
 	<div class="container-fluid">
+		<label id="nav-toggle-label" for="nav-toggle" title="Menu">
+			<span class="sr-only">Menu</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</label>
 		<ul>
 			<?php get_navigation($currentPageUrl); ?>
 		</ul>
@@ -55,13 +62,6 @@ require('header.inc.php');
 
 <div id="main-container" class="container-fluid">
 	<div class="row"><div class="row-md-full-height">
-		<input id="nav-toggle" type="checkbox" />
-		<label id="nav-toggle-label" for="nav-toggle" title="Menu">
-			<span class="sr-only">Menu</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</label>
 		<div class="sidebar col-md-3 col-md-full-height">
 			<?php include('sidebar.inc.php'); ?>
 		</div>

@@ -13,9 +13,9 @@
 <head>
 	<!-- General HTML settings -->
 	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags must come first in the head -->
+	<!-- The above 3 meta tags must come first in the head -->
 	<meta name="robots" content="index, follow" />
 
 	<title><?php echo get_page_clean_title(false).' | '.get_site_name(false); ?></title>

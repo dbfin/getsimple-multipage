@@ -92,9 +92,6 @@ ul > li:last-child:after, ol > li:last-child:after {
 .container-fluid {
 	max-width: 960px;
 }
-.sidebar {
-	padding-right: 0;
-}
 
 
 /* Top Navigation */
@@ -118,7 +115,7 @@ nav ul {
 	right: 0;
 	top: 0;
 	margin: 0;
-    padding: 11px 16px;
+	padding: 11px 16px;
 	list-style: none;
 }
 nav li {
@@ -151,7 +148,7 @@ nav li a {
 #nav-toggle {
 	display: none;
 }
-#nav-toggle + #nav-toggle-label {
+#nav-toggle-label {
 	display: none;
 }
 
@@ -186,6 +183,9 @@ nav li a {
 
 /* Sidebar */
 /* Sections */
+.sidebar {
+	padding-right: 0;
+}
 .sidebar .section {
 	padding: 0 16px 0 0;
 	background: @c_sidebar_background none;
@@ -453,55 +453,17 @@ footer a:link:hover, footer a:focus {
 }
 /* Small screens */
 @media screen and (max-width: 991px) {
-    nav ul {
-		border-radius: 0 0 0 56px;
-        height: 56px;
-        line-height: 55px;
-        padding: 0 14px 0 28px;
-        background-color: rgba(255, 255, 255, 0.96);
-    }
-	#nav-toggle + #nav-toggle-label {
-		display: block;
-		position: fixed;
-		z-index: 1111;
-		left: 0%;
+	body {
+		padding-left: 49px;
+	}
+	nav {
+		left: 48px;
 		top: 0;
-        height: 56px;
-		border-radius: 0 0 56px 0;
-		padding: 17px 28px 17px 14px;
-        background-color: rgba(255, 255, 255, 0.96);
-		cursor: pointer;
-		transition: all @animation_time;
-		-o-transition: all @animation_time;
-		-ms-transition: all @animation_time;
-		-moz-transition: all @animation_time;
-		-webkit-transition: all @animation_time;
-	}
-	#nav-toggle:checked + #nav-toggle-label {
-		left: 100%;
-		margin-left: -62px;
-        background-color: rgba(255, 255, 255, 0);
-	}
-	#nav-toggle + #nav-toggle-label .icon-bar {
-		display: block;
-		width: 22px;
-		height: 2px;
-		margin: 4px 0;
-		border-radius: 1.5px;
-		background: @c_link none;
-	}
-	#nav-toggle + #nav-toggle-label .icon-bar:hover {
-		background: @c_link_hover;
-	}
-	#nav-toggle ~ .sidebar {
-		position: fixed;
-		z-index: 1100;
-		left: -100%;
-		top: 0;
-		width: 100%;
+		width: 49px;
 		height: 100%;
-		overflow-y: auto;
-		padding-top: 58px;
+		margin-left: -48px;
+		border-right: 1px solid @c_border_grey;
+		padding-top: 4px;
 		background: white none;
 		transition: all @animation_time;
 		-o-transition: all @animation_time;
@@ -509,27 +471,67 @@ footer a:link:hover, footer a:focus {
 		-moz-transition: all @animation_time;
 		-webkit-transition: all @animation_time;
 	}
-	#nav-toggle:checked ~ .sidebar {
-		left: 0%;
+	nav ul {
+		position: static;
+		width: 70%;
+		margin: 0 auto;
+		padding: 0;
+		text-align: center;
 	}
-	#nav-toggle ~ .sidebar .logo {
+	nav li {
+		display: inline-block;
+		float: none;
+		height: 50px;
+		line-height: 50px;
+		margin: 0;
+		padding: 0;
+	}
+	#nav-toggle:checked ~ * .sidebar {
+		left: -48px;
+	}
+	#nav-toggle:checked ~ nav {
+		left: 100%;
+	}
+	#nav-toggle-label {
 		display: block;
+		padding: 14px;
+		cursor: pointer;
+	}
+	#nav-toggle-label .icon-bar {
+		display: block;
+		width: 20px;
+		height: 2px;
+		margin: 4px 0;
+		border-radius: 1.5px;
+		background: @c_link none;
+	}
+	.sidebar {
+		box-sizing: content-box;
 		position: fixed;
-		z-index: 1101;
+		z-index: 1100;
 		left: -100%;
 		top: 0;
+		bottom: 0;
 		width: 100%;
-		height: 58px;
+		overflow: scroll;
+		overflow-x: hidden;
+		margin-right: 48px;
+		padding: 0;
+		background: white none;
 		transition: all @animation_time;
 		-o-transition: all @animation_time;
 		-ms-transition: all @animation_time;
 		-moz-transition: all @animation_time;
 		-webkit-transition: all @animation_time;
 	}
-	#nav-toggle:checked ~ .sidebar .logo {
-		left: 0%;
+	.sidebar .logo,
+	.sidebar .section {
+		display: block;
+		margin: 0 0 0 48px;
+		padding-right: 16px;
+		padding-left: 15px;
 	}
-	#nav-toggle ~ .sidebar .logo a {
+	.sidebar .logo a {
 		font-size: 36px;
 		line-height: 58px;
 	}

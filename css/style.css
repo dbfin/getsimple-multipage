@@ -92,9 +92,6 @@ ol > li:last-child:after {
 .container-fluid {
   max-width: 960px;
 }
-.sidebar {
-  padding-right: 0;
-}
 /* Top Navigation */
 nav {
   position: fixed;
@@ -147,7 +144,7 @@ nav li a {
 #nav-toggle {
   display: none;
 }
-#nav-toggle + #nav-toggle-label {
+#nav-toggle-label {
   display: none;
 }
 /* Logo */
@@ -180,6 +177,9 @@ nav li a {
 }
 /* Sidebar */
 /* Sections */
+.sidebar {
+  padding-right: 0;
+}
 .sidebar .section {
   padding: 0 16px 0 0;
   background: transparent none;
@@ -440,83 +440,85 @@ footer a:focus {
 }
 /* Small screens */
 @media screen and (max-width: 991px) {
-  nav ul {
-    border-radius: 0 0 0 56px;
-    height: 56px;
-    line-height: 55px;
-    padding: 0 14px 0 28px;
-    background-color: rgba(255, 255, 255, 0.96);
+  body {
+    padding-left: 49px;
   }
-  #nav-toggle + #nav-toggle-label {
-    display: block;
-    position: fixed;
-    z-index: 1111;
-    left: 0%;
+  nav {
+    left: 48px;
     top: 0;
-    height: 56px;
-    border-radius: 0 0 56px 0;
-    padding: 17px 28px 17px 14px;
-    background-color: rgba(255, 255, 255, 0.96);
-    cursor: pointer;
-    transition: all 0.777s;
-    -o-transition: all 0.777s;
-    -ms-transition: all 0.777s;
-    -moz-transition: all 0.777s;
-    -webkit-transition: all 0.777s;
+    width: 49px;
+    height: 100%;
+    margin-left: -48px;
+    border-right: 1px solid #cccccc;
+    padding-top: 4px;
+    background: white none;
+    transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
   }
-  #nav-toggle:checked + #nav-toggle-label {
+  nav ul {
+    position: static;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+  nav li {
+    display: inline-block;
+    float: none;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+  #nav-toggle:checked ~ * .sidebar {
+    left: -48px;
+  }
+  #nav-toggle:checked ~ nav {
     left: 100%;
-    margin-left: -62px;
-    background-color: rgba(255, 255, 255, 0);
   }
-  #nav-toggle + #nav-toggle-label .icon-bar {
+  #nav-toggle-label {
     display: block;
-    width: 22px;
+    padding: 14px;
+    cursor: pointer;
+  }
+  #nav-toggle-label .icon-bar {
+    display: block;
+    width: 20px;
     height: 2px;
     margin: 4px 0;
     border-radius: 1.5px;
     background: #314e79 none;
   }
-  #nav-toggle + #nav-toggle-label .icon-bar:hover {
-    background: #0c131e;
-  }
-  #nav-toggle ~ .sidebar {
+  .sidebar {
+    box-sizing: content-box;
     position: fixed;
     z-index: 1100;
     left: -100%;
     top: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding-top: 58px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-right: 48px;
+    padding: 0;
     background: white none;
-    transition: all 0.777s;
-    -o-transition: all 0.777s;
-    -ms-transition: all 0.777s;
-    -moz-transition: all 0.777s;
-    -webkit-transition: all 0.777s;
+    transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
   }
-  #nav-toggle:checked ~ .sidebar {
-    left: 0%;
-  }
-  #nav-toggle ~ .sidebar .logo {
+  .sidebar .logo,
+  .sidebar .section {
     display: block;
-    position: fixed;
-    z-index: 1101;
-    left: -100%;
-    top: 0;
-    width: 100%;
-    height: 58px;
-    transition: all 0.777s;
-    -o-transition: all 0.777s;
-    -ms-transition: all 0.777s;
-    -moz-transition: all 0.777s;
-    -webkit-transition: all 0.777s;
+    margin: 0 0 0 48px;
+    padding-right: 16px;
+    padding-left: 15px;
   }
-  #nav-toggle:checked ~ .sidebar .logo {
-    left: 0%;
-  }
-  #nav-toggle ~ .sidebar .logo a {
+  .sidebar .logo a {
     font-size: 36px;
     line-height: 58px;
   }
