@@ -99,15 +99,17 @@ ol > li:last-child:after {
 nav {
   position: fixed;
   z-index: 1001;
+  left: 50%;
   top: 0;
   width: 100%;
   min-height: 0;
-  margin: 0;
+  margin: 0 0 0 -50%;
   border: 0;
   padding: 0;
 }
 nav > .container-fluid {
   position: relative;
+  padding: 0;
 }
 nav ul {
   position: absolute;
@@ -123,6 +125,10 @@ nav li {
   margin: 0 0 0 15px;
 }
 nav li:before {
+  content: '';
+  display: none;
+}
+nav li:after {
   content: '';
   display: none;
 }
@@ -148,7 +154,6 @@ nav li a {
 .logo {
   display: none;
   height: 126px;
-  margin: 0 0 0 -15px;
   border-bottom: 1px solid black;
   padding: 0 7px 0 8px;
   background: white none;
@@ -171,6 +176,7 @@ nav li a {
 }
 .sidebar .logo {
   display: block;
+  margin: 0 0 0 -15px;
 }
 /* Sidebar */
 /* Sections */
@@ -235,9 +241,6 @@ nav li a {
   text-decoration: none;
 }
 /* Section Children (Content) */
-.sidebar .children li {
-  padding: 0.42em 16px 0.42em 0;
-}
 .sidebar .children li:before {
   content: '';
   display: none;
@@ -405,13 +408,11 @@ footer a:focus {
   }
   .logo {
     display: block;
-    margin: 0 0 0 0;
   }
   .sidebar .logo {
     display: none;
   }
   .post-navigation {
-    display: none;
     display: block;
   }
   article {
